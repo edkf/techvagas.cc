@@ -1,36 +1,48 @@
 import React from "react"
 
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { useStaticQuery, graphql } from "gatsby"
 
-import JobList from '../components/jobList'
+import Home from './home'
 
 const IndexPage = () => {
 
   const data = useStaticQuery(graphql`
-  query Vagas {
+  query AllData {
     allAirtable {
       nodes {
         data {
-          Contato
+          Vaga
           Empresa
           Local
-          Vaga
+          Contato
+          Categoria
         }
         id
+      }
+      categories: group(field: data___Categoria) {
+        fieldValue
+        totalCount
+      }
+      local: group(field: data___Local) {
+        fieldValue
+        totalCount
+      }
+    }
+    site {
+      siteMetadata {
+        title
+        description
       }
     }
   }  
   `)
 
-  console.log(data.allAirtable)
-
   return (
-    <Layout>
+    <>
       <SEO title="Home" />
-      <JobList data={data.allAirtable.nodes} />
-    </Layout>
+      <Home data={data} />
+    </>
   )
 
 }
