@@ -18,10 +18,13 @@ const IndexPage = () => {
           Local
           Vaga
         }
+        id
       }
     }
   }  
   `)
+
+  console.log(data.allAirtable)
 
   return (
     <Layout>
