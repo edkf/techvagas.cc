@@ -1,15 +1,25 @@
 import React, { Component } from 'react'
 
 import JobList from '../components/jobList'
+import Filter from '../components/filter'
+
+import slugify from '../utils/slugify'
 
 class Home extends Component {
 
+  
   constructor (props) {
     super(props)
+
+    this.handleChange = this.handleChange.bind(this)
+    this.filterJobs = this.filterJobs.bind(this)
+
     this.state = {
       jobList: [],
       categories: [],
-      local: []
+      local: [],
+      selectedFilters: [],
+      filteredJobs: []
     }
   }
 
@@ -17,21 +27,66 @@ class Home extends Component {
 
     const { nodes, categories, local } = this.props.data.allAirtable
 
+    const jobList = nodes.map((job) => {
+      const slugifyLocals = job.data.Local.map((item) => slugify(item))
+      const newObj = Object.assign(job.data, {
+        id: job.id,
+        allCategories: [...slugifyLocals, slugify(job.data.Categoria)]
+      })
+      return newObj
+    })
+
     this.setState({
-      jobList: nodes,
+      jobList,
       categories,
       local
     })
 
   }
 
-  render () {
+  handleChange (checkboxVal) {
+
+    const hasValueInFilter = this.state.selectedFilters.some(elem => elem === checkboxVal)
+
+    if (hasValueInFilter) {
+      this.setState(prevState => ({
+        selectedFilters: prevState.selectedFilters.filter(function(value){ return value !== checkboxVal})
+      }))
+    } else {
+      this.setState(prevState => ({
+        selectedFilters: [...prevState.selectedFilters, checkboxVal]
+      }))
+    }
+
+    this.filterJobs()
+
+  }
+
+
+  filterJobs () {
 
     const { jobList } = this.state
 
+    this.setState(prevState => ({
+      filteredJobs: jobList.filter(j => prevState.selectedFilters.every(filter => j.allCategories.includes(filter)))
+    }))
+
+  }
+
+  render () {
+
+    const { jobList, categories, local, filteredJobs, selectedFilters } = this.state
+
     return (
       <>
-        {jobList && <JobList data={jobList} />}
+        <Filter
+          categories={categories}
+          local={local}
+          handleChange={(checkboxVal) => this.handleChange(checkboxVal)}
+        />
+        <JobList
+          data={selectedFilters.length > 0 ? filteredJobs : jobList}
+        />
       </>
     )
   }
