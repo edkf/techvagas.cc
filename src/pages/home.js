@@ -115,14 +115,17 @@ class Home extends Component {
         <JobList
           data={selectedFilters.length > 0 ? filteredJobs : jobList}
         />
-        <Filter
-          categories={categories}
-          local={local}
-          handleChange={(checkboxVal) => this.handleChange(checkboxVal)}
-          isFilterOpened={isFilterOpened}
-          toggleFilter={this.toggleFilter}
-          selectedFilters={selectedFilters}
+
+        {
+          isContentLoaded &&  <Filter
+            categories={categories}
+            local={local}
+            handleChange={(checkboxVal) => this.handleChange(checkboxVal)}
+            isFilterOpened={isFilterOpened}
+            toggleFilter={this.toggleFilter}
+            selectedFilters={selectedFilters}
         />
+        }
       </>
     )
   }
