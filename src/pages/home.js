@@ -28,7 +28,6 @@ class Home extends Component {
     const { nodes, categories, local } = this.props.data.allAirtable
 
     const jobList = nodes.map((job) => {
-
       const slugifyLocals = job.data.Local.map((item) => slugify(item))
       const newObj = Object.assign(job.data, {
         id: job.id,
@@ -66,9 +65,7 @@ class Home extends Component {
 
   filterJobs () {
 
-    // TODO: Fix later
-    const { jobList, selectedFilters } = this.state
-    // this.state.filteredJobs = jobList.filter(j => selectedFilters.every(filter => j.allCategories.includes(filter)))
+    const { jobList } = this.state
 
     this.setState(prevState => ({
       filteredJobs: jobList.filter(j => prevState.selectedFilters.every(filter => j.allCategories.includes(filter)))
@@ -88,7 +85,7 @@ class Home extends Component {
           handleChange={(checkboxVal) => this.handleChange(checkboxVal)}
         />
         <JobList
-          data={filteredJobs.length > 0 ? filteredJobs : jobList}
+          data={selectedFilters.length > 0 ? filteredJobs : jobList}
         />
       </>
     )
