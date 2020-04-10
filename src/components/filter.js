@@ -9,11 +9,11 @@ const Filter = ({categories, local, handleChange}) => {
       <div>
         <h4>Áreas</h4>
         {categories.map((item) => (
-          <Checkbox value={item} handleChange={(checkboxVal) => handleChange(checkboxVal)} />
+          <Checkbox key={item.fieldValue} value={item} handleChange={(checkboxVal) => handleChange(checkboxVal)} />
         ))}
         <h4>Local</h4>
         {local.map((item) => (
-          <Checkbox value={item} handleChange={(checkboxVal) => handleChange(checkboxVal)} />
+          <Checkbox key={item.fieldValue} value={item} handleChange={(checkboxVal) => handleChange(checkboxVal)} />
         ))}
       </div>
     </>

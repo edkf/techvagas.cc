@@ -25,8 +25,16 @@ class Home extends Component {
 
     const { nodes, categories, local } = this.props.data.allAirtable
 
+    const jobList = nodes.map((job) => {
+      const newObj = Object.assign(job.data, {
+        id: job.id,
+        allCategories: [...job.data.Local, job.data.Categoria]
+      })
+      return newObj
+    })
+
     this.setState({
-      jobList: nodes,
+      jobList,
       categories,
       local
     })
@@ -47,9 +55,12 @@ class Home extends Component {
       }))
     }
 
-    this.filterJobs()
-
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    this.filterJobs()
+  }
+
 
   filterJobs () {
   }

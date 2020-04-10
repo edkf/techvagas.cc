@@ -8,7 +8,7 @@ const JobList = (props) => {
     <div>
       {
         props.data.map(item => (
-          <JobItem key={item.id} data={item.data} />
+          <JobItem key={item.id} data={item} />
         ))
       }
     </div>

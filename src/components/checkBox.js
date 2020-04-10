@@ -6,9 +6,9 @@ const Checkbox = ({value, handleChange}) => {
 
   return (
     <>
-      <label class="control checkbox"name={checkboxVal}>
+      <label className="control checkbox"name={checkboxVal}>
         <input type="checkbox" name={checkboxVal} onChange={() => handleChange(checkboxVal)} />
-        <span class="control-indicator"></span>
+        <span className="control-indicator"></span>
         {value.fieldValue} ({value.totalCount})
         <br />
       </label>
