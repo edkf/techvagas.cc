@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 
 import Header from '../components/header'
 import Hero from '../components/hero'
@@ -6,6 +7,19 @@ import JobList from '../components/jobList'
 import Filter from '../components/filter'
 
 import slugify from '../utils/slugify'
+
+const Loading = styled.div`
+  width: 100%;
+  height: 100vh;
+  background-color: #FFF;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 5;
+  transition: opacity .6s ease .2s;
+  opacity: ${props => props.isContentLoaded ? '0' : '1'};
+  pointer-events: none;
+`
 
 class Home extends Component {
 
@@ -25,6 +39,7 @@ class Home extends Component {
       selectedFilters: [],
       filteredJobs: [],
       isFilterOpened: false,
+      isContentLoaded: false
     }
   }
 
@@ -47,7 +62,8 @@ class Home extends Component {
       jobList,
       categories,
       local,
-      metadata
+      metadata,
+      isContentLoaded: true
     })
 
   }
@@ -89,10 +105,11 @@ class Home extends Component {
 
   render () {
 
-    const { jobList, categories, local, filteredJobs, selectedFilters, metadata, isFilterOpened } = this.state
+    const { jobList, categories, local, filteredJobs, selectedFilters, metadata, isFilterOpened, isContentLoaded } = this.state
 
     return (
       <>
+        <Loading isContentLoaded={isContentLoaded} />
         {metadata && <Header title={metadata.title} formUrl={metadata.formUrl} />}
         {metadata && <Hero heroHeadline={metadata.heroHeadline} description={metadata.description} /> }
         <JobList
