@@ -63,16 +63,16 @@ class Home extends Component {
 
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    this.filterJobs()
-  }
-
 
   filterJobs () {
 
     // TODO: Fix later
     const { jobList, selectedFilters } = this.state
-    this.state.filteredJobs = jobList.filter(j => selectedFilters.every(filter => j.allCategories.includes(filter)))
+    // this.state.filteredJobs = jobList.filter(j => selectedFilters.every(filter => j.allCategories.includes(filter)))
+
+    this.setState(prevState => ({
+      filteredJobs: jobList.filter(j => prevState.selectedFilters.every(filter => j.allCategories.includes(filter)))
+    }))
 
   }
 
@@ -88,7 +88,7 @@ class Home extends Component {
           handleChange={(checkboxVal) => this.handleChange(checkboxVal)}
         />
         <JobList
-          data={filteredJobs.length < 1 ? jobList : filteredJobs}
+          data={filteredJobs.length > 0 ? filteredJobs : jobList}
         />
       </>
     )
