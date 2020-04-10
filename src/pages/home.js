@@ -15,6 +15,7 @@ class Home extends Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.filterJobs = this.filterJobs.bind(this)
+    this.toggleFilter = this.toggleFilter.bind(this)
 
     this.state = {
       metadata: null,
@@ -22,7 +23,8 @@ class Home extends Component {
       categories: [],
       local: [],
       selectedFilters: [],
-      filteredJobs: []
+      filteredJobs: [],
+      isFilterOpened: false,
     }
   }
 
@@ -79,9 +81,15 @@ class Home extends Component {
 
   }
 
+  toggleFilter () {
+    this.setState(prevState => ({
+      isFilterOpened: !prevState.isFilterOpened
+    }))
+  }
+
   render () {
 
-    const { jobList, categories, local, filteredJobs, selectedFilters, metadata } = this.state
+    const { jobList, categories, local, filteredJobs, selectedFilters, metadata, isFilterOpened } = this.state
 
     return (
       <>
@@ -90,11 +98,14 @@ class Home extends Component {
         <JobList
           data={selectedFilters.length > 0 ? filteredJobs : jobList}
         />
-        {/* <Filter
+        <Filter
           categories={categories}
           local={local}
           handleChange={(checkboxVal) => this.handleChange(checkboxVal)}
-        /> */}
+          isFilterOpened={isFilterOpened}
+          toggleFilter={this.toggleFilter}
+          selectedFilters={selectedFilters}
+        />
       </>
     )
   }

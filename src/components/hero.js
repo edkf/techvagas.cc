@@ -17,7 +17,7 @@ const Headline = styled.h2`
   font-weight: 500;
   margin: 0;
   margin-bottom: 60px;
-  letter-spacing: -4px;
+  letter-spacing: -6px;
   line-height: 1;
 `
 

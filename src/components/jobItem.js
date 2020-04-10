@@ -21,6 +21,7 @@ const Description = styled.p`
   color: #808080;
   margin: 0;
   line-height: 1.3;
+  transition: color .3s ease;
 `
 
 const Content = styled.a`
@@ -33,10 +34,14 @@ const Content = styled.a`
 
   &:hover {
     color: #0000EE;
+
+    ${Description} {
+      color: #0000EE;
+    }
   }
 
   @media (max-width: 768px) {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
 `
 

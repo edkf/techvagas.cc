@@ -50,6 +50,9 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 16px;
     }
   }
+
+  @media (prefers-color-scheme: dark) {
+  }
 `
 
 export const Container = styled.div`

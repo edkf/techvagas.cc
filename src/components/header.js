@@ -22,6 +22,11 @@ const Logo = styled.h1`
   cursor: pointer;
   font-weight: 500;
 
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
   @media (max-width: 768px) {
     font-size: 26px;
   }
@@ -40,7 +45,7 @@ const Header = ({title, formUrl}) => {
   return (
     <Container>
       <Content>
-        <Logo>vagas.cc</Logo>
+        <Logo ><a href="/">vagas.cc</a></Logo>
         <Link
           href={formUrl}
           target="_blank"
