@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import Header from '../components/header'
+import Hero from '../components/hero'
 import JobList from '../components/jobList'
 import Filter from '../components/filter'
 
@@ -15,6 +17,7 @@ class Home extends Component {
     this.filterJobs = this.filterJobs.bind(this)
 
     this.state = {
+      metadata: null,
       jobList: [],
       categories: [],
       local: [],
@@ -26,6 +29,8 @@ class Home extends Component {
   componentDidMount () {
 
     const { nodes, categories, local } = this.props.data.allAirtable
+
+    const metadata = this.props.data.site.siteMetadata
 
     const jobList = nodes.map((job) => {
       const slugifyLocals = job.data.Local.map((item) => slugify(item))
@@ -39,7 +44,8 @@ class Home extends Component {
     this.setState({
       jobList,
       categories,
-      local
+      local,
+      metadata
     })
 
   }
@@ -75,18 +81,20 @@ class Home extends Component {
 
   render () {
 
-    const { jobList, categories, local, filteredJobs, selectedFilters } = this.state
+    const { jobList, categories, local, filteredJobs, selectedFilters, metadata } = this.state
 
     return (
       <>
-        <Filter
-          categories={categories}
-          local={local}
-          handleChange={(checkboxVal) => this.handleChange(checkboxVal)}
-        />
+        {metadata && <Header title={metadata.title} formUrl={metadata.formUrl} />}
+        {metadata && <Hero heroHeadline={metadata.heroHeadline} description={metadata.description} /> }
         <JobList
           data={selectedFilters.length > 0 ? filteredJobs : jobList}
         />
+        {/* <Filter
+          categories={categories}
+          local={local}
+          handleChange={(checkboxVal) => this.handleChange(checkboxVal)}
+        /> */}
       </>
     )
   }
