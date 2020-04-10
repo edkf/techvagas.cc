@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import JobList from '../components/jobList'
 import Filter from '../components/filter'
 
+import slugify from '../utils/slugify'
+
 class Home extends Component {
 
   
@@ -26,9 +28,11 @@ class Home extends Component {
     const { nodes, categories, local } = this.props.data.allAirtable
 
     const jobList = nodes.map((job) => {
+
+      const slugifyLocals = job.data.Local.map((item) => slugify(item))
       const newObj = Object.assign(job.data, {
         id: job.id,
-        allCategories: [...job.data.Local, job.data.Categoria]
+        allCategories: [...slugifyLocals, slugify(job.data.Categoria)]
       })
       return newObj
     })
@@ -55,6 +59,8 @@ class Home extends Component {
       }))
     }
 
+    this.filterJobs()
+
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -63,6 +69,11 @@ class Home extends Component {
 
 
   filterJobs () {
+
+    // TODO: Fix later
+    const { jobList, selectedFilters } = this.state
+    this.state.filteredJobs = jobList.filter(j => selectedFilters.every(filter => j.allCategories.includes(filter)))
+
   }
 
   render () {
@@ -77,7 +88,7 @@ class Home extends Component {
           handleChange={(checkboxVal) => this.handleChange(checkboxVal)}
         />
         <JobList
-          data={selectedFilters.length > 0 ? filteredJobs : jobList}
+          data={filteredJobs.length < 1 ? jobList : filteredJobs}
         />
       </>
     )
