@@ -28,7 +28,7 @@ const Container = styled.div`
     /* left: auto; */
     right: ${props => props.isFilterOpened ? '30px' : 'auto'};
     /* right: 30px; */
-    bottom: ${props => props.isIOS ? props.isScrollingDown ? '30px' : '17.5vh' : '30px'};
+    bottom: ${props => props.isIOS ? (props.isScrollingDown ? '30px' : '17.5vh') : '30px'};
     width: 90px;
     height: 90px;
     background-size: 30px 30px;
