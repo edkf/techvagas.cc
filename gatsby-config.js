@@ -61,4 +61,5 @@ module.exports = {
         sv: 6
       },
     },
+  ]
 }
