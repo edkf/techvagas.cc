@@ -8,7 +8,7 @@ const Container = styled.div`
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  border: 5px solid #000;
+  border: ${props => props.isFilterOpened ? `5px solid #FFF` : `5px solid #000`};
   position: absolute;
   bottom: 90px;
   left: -60px;
