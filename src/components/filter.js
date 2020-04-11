@@ -66,6 +66,10 @@ const FilterContent = styled.div`
   @media (max-width: 768px) {
     width: 75%;
   }
+
+  @media (max-width: 320px) {
+    width: 85%;
+  }
 `
 
 const ListTitle = styled.h4`
