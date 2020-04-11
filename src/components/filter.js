@@ -102,12 +102,19 @@ class Filter extends Component {
     this.handleScroll = this.handleScroll.bind(this)
 
     this.state = {
-      isScrollingDown: false
+      isScrollingDown: false,
+      isIOS: false
     }
   }
 
   componentDidMount () {
     this.handleScroll()
+
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+
+    this.setState({
+      isIOS
+    })
   }
 
   componentWillUnmount () {
@@ -117,22 +124,22 @@ class Filter extends Component {
   handleScroll (event) {
     var scrollPos = 0;
     // adding scroll event
-  var lastScrollTop = 0;
-  window.addEventListener("scroll", () => {
-    var st = window.pageYOffset || document.documentElement.scrollTop;
-    if (st > lastScrollTop){
-        // downscroll code
-        console.log('down')
-        this.setState({
-          isScrollingDown: true
-        })
-      } else {
-        // upscroll code
-        console.log('up')
-        this.setState({
-          isScrollingDown: false
-        })
-    }
+    var lastScrollTop = 0;
+    window.addEventListener("scroll", () => {
+      var st = window.pageYOffset || document.documentElement.scrollTop;
+      if (st > lastScrollTop){
+          // downscroll code
+          console.log('down')
+          this.setState({
+            isScrollingDown: true
+          })
+        } else {
+          // upscroll code
+          console.log('up')
+          this.setState({
+            isScrollingDown: false
+          })
+      }
     lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
   }, false);
   }
@@ -148,7 +155,7 @@ class Filter extends Component {
       selectedFilters
     } = this.props
 
-    const { isScrollingDown } = this.state
+    const { isScrollingDown, isIOS } = this.state
 
     return (
       <Wrapper isFilterOpened={isFilterOpened} style={{minHeight: '100rvh'}}>
@@ -158,6 +165,7 @@ class Filter extends Component {
             toggleFilter={() => toggleFilter()}
             isFilterOpened={isFilterOpened}
             selectedFilters={selectedFilters}
+            isIOS={isIOS}
             isScrollingDown={isScrollingDown}
           />
           <Scroll>
