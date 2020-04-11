@@ -3,6 +3,9 @@ import React from "react"
 import SEO from "../components/seo"
 import { useStaticQuery, graphql } from "gatsby"
 
+// Styles
+import { GlobalStyle } from '../styles/global'
+
 import Home from './home'
 
 const IndexPage = () => {
@@ -33,6 +36,9 @@ const IndexPage = () => {
       siteMetadata {
         title
         description
+        heroHeadline
+        formUrl
+        footer
       }
     }
   }  
@@ -40,6 +46,7 @@ const IndexPage = () => {
 
   return (
     <>
+      <GlobalStyle />
       <SEO title="Home" />
       <Home data={data} />
     </>

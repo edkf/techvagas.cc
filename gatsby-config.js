@@ -3,8 +3,11 @@ require('dotenv').config()
 module.exports = {
   siteMetadata: {
     title: `vagas.cc`,
-    description: `Iniciativa com objetivo de ajudar profissionais que foram afetados pelo COVID-19 a encontrar um novo trabalho em momentos tão incertos no qual estamos vivendo.`,
+    heroHeadline: 'Vagas de Tecnologia',
+    description: `Uma iniciativa que tem por objetivo trazer a esperança de um novo emprego, mesmo em meio à incerteza da pandemia.`,
     author: `@edgardkozlowski`,
+    formUrl: 'https://airtable.com/shrcFKFGDq6WcGZkJ',
+    footer: 'Projeto desenvolvido por <a href="https://edkf.com.br" target="_blank">@edkf</a>. Agradecimento especial à <a href="https://kaisermann.me/" target="_blank">@kwistian</a> e <a href="https://www.linkedin.com/in/leilacangussu/" target="_blank">@LeilaCristina</a>.'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
