@@ -5,7 +5,7 @@ module.exports = {
     title: `vagas.cc`,
     heroHeadline: 'Vagas de Tecnologia',
     description: `Uma iniciativa que tem por objetivo trazer a esperança de um novo emprego, mesmo em meio à incerteza da pandemia.`,
-    author: `@edgardkozlowski`,
+    author: `Edgard Kozlowski`,
     formUrl: 'https://airtable.com/shrcFKFGDq6WcGZkJ',
     footer: 'Projeto desenvolvido por <a href="https://edkf.com.br" target="_blank">@edkf</a>. Agradecimento especial à <a href="https://kaisermann.me/" target="_blank">@kwistian</a> e <a href="https://www.linkedin.com/in/leilacangussu/" target="_blank">@LeilaCristina</a>.'
   },
@@ -26,10 +26,10 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#000`,
+        theme_color: `#000`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/vagas-icon.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -46,7 +46,13 @@ module.exports = {
           }
         ]
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-54127697-7",
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
