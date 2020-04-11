@@ -12,6 +12,7 @@ const Container = styled.div`
   position: absolute;
   bottom: 90px;
   left: -60px;
+  right: auto;
   z-index: 3;
   background-color: #FFF;
   cursor: pointer;
@@ -19,14 +20,19 @@ const Container = styled.div`
   background-repeat: no-repeat;
   background-position: center center;
   pointer-events: auto !important;
-  
-  /* @media (max-width: 768px) {
-    width: 80px;
-    height: 80px;
-    left: -40px;
+  background-size: 35px 35px;
+  transition: all .3s ease;
+
+  @media (max-width: 768px) {
+    left: ${props => props.isFilterOpened ? 'auto' : '40px'};
+    /* left: auto; */
+    right: ${props => props.isFilterOpened ? '30px' : 'auto'};
+    /* right: 30px; */
     bottom: 30px;
-    background-size: 40px 40px;
-  } */
+    width: 90px;
+    height: 90px;
+    background-size: 30px 30px;
+  }
 `
 
 const Badge = styled.div`

@@ -10,12 +10,14 @@ const Content = styled.div`
   color: #808080;
   margin-top: 30px;
   padding: 60px 0;
+  line-height: 1.3;
 
   a {
     text-decoration: none;
   }
 
   @media (max-width: 768px) {
+    grid-column-end: 31;
     margin-bottom: 30px;
   }
 `

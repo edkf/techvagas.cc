@@ -43,17 +43,17 @@ const FilterContainer = styled.div`
   transform: ${props => props.isFilterOpened ? 'translateX(0px)' : 'translateX(calc(100% - 160px))'};
   pointer-events: ${props => props.isFilterOpened ? 'auto' : 'none'};
 
-  /* @media (max-width: 1556px) {
+  @media (max-width: 1556px) {
     grid-column-start: 16;
-    grid-column-end: 33;
-    transform: ${props => props.isFilterOpened ? 'translateX(0px)' : 'translateX(calc(100%))'};
+  }
+
+  @media (max-width: 1020px) {
+    grid-column-start: 10;
   }
 
   @media (max-width: 768px) {
     grid-column-start: 1;
-    grid-column-end: 33;
-    transform: ${props => props.isFilterOpened ? 'translateX(0px)' : 'translateX(calc(100%))'};
-  } */
+  }
 `
 
 const FilterContent = styled.div`

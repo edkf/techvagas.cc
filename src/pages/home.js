@@ -40,7 +40,7 @@ class Home extends Component {
       local: [],
       selectedFilters: [],
       filteredJobs: [],
-      isFilterOpened: false,
+      isFilterOpened: true,
       isContentLoaded: false
     }
   }
@@ -48,7 +48,6 @@ class Home extends Component {
   componentDidMount () {
 
     const { nodes, categories, local } = this.props.data.allAirtable
-
     const metadata = this.props.data.site.siteMetadata
 
     const jobList = nodes.map((job) => {
@@ -96,10 +95,10 @@ class Home extends Component {
     this.setState(prevState => ({
       filteredJobs: jobList.filter(j => prevState.selectedFilters.every(filter => j.allCategories.includes(filter)))
     }))
-
   }
 
   toggleFilter () {
+
     this.setState(prevState => ({
       isFilterOpened: !prevState.isFilterOpened
     }))
@@ -107,7 +106,15 @@ class Home extends Component {
 
   render () {
 
-    const { jobList, categories, local, filteredJobs, selectedFilters, metadata, isFilterOpened, isContentLoaded } = this.state
+    const { jobList,
+      categories,
+      local,
+      filteredJobs,
+      selectedFilters,
+      metadata,
+      isFilterOpened,
+      isContentLoaded
+    } = this.state
 
     const hasSelectedFilters = selectedFilters.length > 0
     const hasFilteredJobs = filteredJobs.length > 0
@@ -132,6 +139,7 @@ class Home extends Component {
             selectedFilters={selectedFilters}
         />
         }
+        
         {metadata && <Footer content={metadata.footer} />}
       </>
     )

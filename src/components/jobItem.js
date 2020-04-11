@@ -48,7 +48,12 @@ const Content = styled.a`
 
 const JobItem = (props) => {
 
-  const {Contato, Empresa, Local, Vaga} = props.data
+  const {
+    Contato,
+    Empresa,
+    Local, 
+    Vaga
+  } = props.data
 
   const localStr = Local.map((item, index) => index === Local.length - 1 ? item : item + ', ')
 
