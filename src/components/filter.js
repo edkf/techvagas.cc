@@ -80,7 +80,7 @@ const ListTitle = styled.h4`
 `
 
 const CheckboxList = styled.div`
-  margin-bottom: 90px;
+  padding-bottom: 90px;
 `
 
 const Scroll = styled.div`
