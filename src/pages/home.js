@@ -40,7 +40,7 @@ class Home extends Component {
       local: [],
       selectedFilters: [],
       filteredJobs: [],
-      isFilterOpened: true,
+      isFilterOpened: false,
       isContentLoaded: false
     }
   }
