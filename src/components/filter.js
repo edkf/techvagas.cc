@@ -103,18 +103,22 @@ class Filter extends Component {
 
     this.state = {
       isScrollingDown: false,
-      isIOS: false
+      isIOS: false,
+      isAndroid: false
     }
   }
 
   componentDidMount () {
-    
     this.handleScroll()
 
+    const ua = navigator.userAgent.toLowerCase()
+
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+    const isAndroid = ua.indexOf("android") > -1
 
     this.setState({
-      isIOS
+      isIOS,
+      isAndroid
     })
   }
 
@@ -154,7 +158,7 @@ class Filter extends Component {
       selectedFilters
     } = this.props
 
-    const { isScrollingDown, isIOS } = this.state
+    const { isScrollingDown, isIOS, isAndroid } = this.state
 
     return (
       <Wrapper isFilterOpened={isFilterOpened} style={{minHeight: '100rvh'}}>
@@ -165,6 +169,7 @@ class Filter extends Component {
             isFilterOpened={isFilterOpened}
             selectedFilters={selectedFilters}
             isIOS={isIOS}
+            isAndroid={isAndroid}
             isScrollingDown={isScrollingDown}
           />
           <Scroll>
