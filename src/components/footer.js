@@ -8,8 +8,8 @@ const Content = styled.div`
   grid-column-end: 31;
   /* border-top: 5px solid #000; */
   color: #808080;
-  margin-top: 60px;
-  padding: 30px 0;
+  margin-top: 30px;
+  padding: 60px 0;
 
   a {
     text-decoration: none;
