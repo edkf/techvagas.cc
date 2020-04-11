@@ -6,6 +6,7 @@ module.exports = {
     heroHeadline: 'Vagas de Tecnologia',
     description: `Uma iniciativa que tem por objetivo trazer a esperança de um novo emprego, mesmo em meio à incerteza da pandemia.`,
     author: `Edgard Kozlowski`,
+    thumbnail: 'src/images/vagascc.png',
     formUrl: 'https://airtable.com/shrcFKFGDq6WcGZkJ',
     footer: 'Projeto desenvolvido por <a href="https://edkf.com.br" target="_blank">@edkf</a>. Agradecimento especial à <a href="https://kaisermann.me/" target="_blank">@kwistian</a> e <a href="https://www.linkedin.com/in/leilacangussu/" target="_blank">@LeilaCristina</a>.'
   },

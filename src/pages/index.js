@@ -3,6 +3,8 @@ import React from "react"
 import SEO from "../components/seo"
 import { useStaticQuery, graphql } from "gatsby"
 
+import ogImagePath from '../images/vagascc.png'
+
 // Styles
 import { GlobalStyle } from '../styles/global'
 
@@ -47,7 +49,10 @@ const IndexPage = () => {
   return (
     <>
       <GlobalStyle />
-      <SEO title="Home" />
+      <SEO
+        title="Home"
+        image={ogImagePath}
+        />
       <Home data={data} />
     </>
   )
