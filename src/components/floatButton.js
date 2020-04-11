@@ -20,7 +20,7 @@ const Container = styled.div`
   background-repeat: no-repeat;
   background-position: center center;
   pointer-events: auto !important;
-  background-size: 35px 35px;
+  background-size: 45px 45px;
   transition: all .3s ease;
 
   @media (max-width: 768px) {
@@ -28,7 +28,7 @@ const Container = styled.div`
     /* left: auto; */
     right: ${props => props.isFilterOpened ? '30px' : 'auto'};
     /* right: 30px; */
-    bottom: 30px;
+    bottom: ${props => props.isScrollingDown ? '30px' : '17.5vh'};
     width: 90px;
     height: 90px;
     background-size: 30px 30px;
@@ -50,12 +50,12 @@ const Badge = styled.div`
   text-align: center;
 `
 
-const FloatButton = ({toggleFilter, isFilterOpened, selectedFilters}) => {
+const FloatButton = ({toggleFilter, isFilterOpened, selectedFilters, isScrollingDown}) => {
 
   const badgeCounter = selectedFilters.length
 
   return (
-    <Container isFilterOpened={isFilterOpened} onClick={() => toggleFilter()}>
+    <Container isScrollingDown={isScrollingDown} isFilterOpened={isFilterOpened} onClick={() => toggleFilter()}>
       { (!isFilterOpened && (badgeCounter > 0)) && <Badge>{badgeCounter}</Badge>}
     </Container>
   )
