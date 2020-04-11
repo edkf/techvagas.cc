@@ -38,6 +38,7 @@ const IndexPage = () => {
         description
         heroHeadline
         formUrl
+        footer
       }
     }
   }  

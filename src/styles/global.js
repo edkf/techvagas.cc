@@ -38,6 +38,8 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 20px;
     background-color: #FFF;
     letter-spacing: -0.5px;
+    position: relative;
+    min-height: 100vh;
   }
 
   a {

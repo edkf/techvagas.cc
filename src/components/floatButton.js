@@ -20,13 +20,13 @@ const Container = styled.div`
   background-position: center center;
   pointer-events: auto !important;
   
-
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     width: 80px;
     height: 80px;
     left: -40px;
     bottom: 30px;
-  }
+    background-size: 40px 40px;
+  } */
 `
 
 const Badge = styled.div`

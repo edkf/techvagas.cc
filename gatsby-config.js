@@ -7,6 +7,7 @@ module.exports = {
     description: `Uma iniciativa que tem por objetivo trazer a esperança de um novo emprego, mesmo em meio à incerteza da pandemia.`,
     author: `@edgardkozlowski`,
     formUrl: 'https://airtable.com/shrcFKFGDq6WcGZkJ',
+    footer: 'Projeto desenvolvido por <a href="https://edkf.com.br" target="_blank">@edkf</a>. Agradecimento especial ao <a href="https://kaisermann.me/" target="_blank">@kwistian</a> e <a href="https://www.linkedin.com/in/leilacangussu/" target="_blank">@LeilaCristina</a>.'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

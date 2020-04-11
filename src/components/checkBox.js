@@ -10,6 +10,11 @@ const Box = styled.div`
   height: 40px;
   border: 1px solid #FFF;
   margin-right: 20px;
+
+  @media (max-width: 375px) {
+    width: 30px;
+    height: 30px;
+  }
 `
 
 const Label = styled.label`
@@ -20,6 +25,10 @@ const Label = styled.label`
   align-items: center;
   flex-wrap: wrap;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `
 
 const Input = styled.input`

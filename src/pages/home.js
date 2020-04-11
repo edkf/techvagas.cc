@@ -5,6 +5,7 @@ import Header from '../components/header'
 import Hero from '../components/hero'
 import JobList from '../components/jobList'
 import Filter from '../components/filter'
+import Footer from '../components/footer'
 
 import slugify from '../utils/slugify'
 
@@ -126,6 +127,7 @@ class Home extends Component {
             selectedFilters={selectedFilters}
         />
         }
+        {metadata && <Footer content={metadata.footer} />}
       </>
     )
   }

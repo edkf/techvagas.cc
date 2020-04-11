@@ -42,6 +42,18 @@ const FilterContainer = styled.div`
   z-index: 2;
   transform: ${props => props.isFilterOpened ? 'translateX(0px)' : 'translateX(calc(100% - 160px))'};
   pointer-events: ${props => props.isFilterOpened ? 'auto' : 'none'};
+
+  /* @media (max-width: 1556px) {
+    grid-column-start: 16;
+    grid-column-end: 33;
+    transform: ${props => props.isFilterOpened ? 'translateX(0px)' : 'translateX(calc(100%))'};
+  }
+
+  @media (max-width: 768px) {
+    grid-column-start: 1;
+    grid-column-end: 33;
+    transform: ${props => props.isFilterOpened ? 'translateX(0px)' : 'translateX(calc(100%))'};
+  } */
 `
 
 const FilterContent = styled.div`
@@ -50,6 +62,10 @@ const FilterContent = styled.div`
   height: 100vh;
   pointer-events: ${props => props.isFilterOpened ? 'auto' : 'none'};
   opacity: ${props => props.isFilterOpened ? '1' : '0'};
+
+  @media (max-width: 768px) {
+    width: 75%;
+  }
 `
 
 const ListTitle = styled.h4`
@@ -72,6 +88,10 @@ const Scroll = styled.div`
   height: 100vh;
   overflow-y: scroll;
   padding-top: 120px;
+
+  @media (max-width: 768px) {
+    padding-top: 60px;
+  }
 `
 
 const Filter = ({categories, local, handleChange, isFilterOpened, toggleFilter, selectedFilters}) => {
