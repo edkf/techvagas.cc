@@ -8,7 +8,7 @@ module.exports = {
     author: `Edgard Kozlowski`,
     thumbnail: 'src/images/vagascc.png',
     formUrl: 'https://airtable.com/shrcFKFGDq6WcGZkJ',
-    footer: 'Projeto desenvolvido por <a href="https://edkf.com.br" target="_blank">@edkf</a>. Agradecimento especial à <a href="https://kaisermann.me/" target="_blank">@kiwistian</a> e <a href="https://www.linkedin.com/in/leilacangussu/" target="_blank">@LeilaCristina</a>. <br /> Para reportar um erro, mandar duvidas ou sugestões, enviar email para <a href="mailto:hello@edkf.com.br">hello@edkf.com.br</a>.'
+    footer: 'Projeto desenvolvido por <a href="https://edkf.com.br" target="_blank">@edkf</a>. Agradecimento especial à <a href="https://kaisermann.me/" target="_blank">@kiwistian</a> e <a href="https://www.linkedin.com/in/leilacangussu/" target="_blank">@leilacristina</a>. <br /> Para reportar um erro, mandar duvidas ou sugestões, enviar email para <a href="mailto:hello@edkf.com.br">hello@edkf.com.br</a>.'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
