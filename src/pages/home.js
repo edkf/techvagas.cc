@@ -6,7 +6,7 @@ import Hero from '../components/hero'
 import JobList from '../components/jobList'
 import Filter from '../components/filter'
 import Footer from '../components/footer'
-import NoResults from '../components/noresults'
+import NoResults from '../components/noResults'
 
 import slugify from '../utils/slugify'
 
