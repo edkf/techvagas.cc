@@ -108,6 +108,7 @@ class Filter extends Component {
   }
 
   componentDidMount () {
+    
     this.handleScroll()
 
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
@@ -129,13 +130,11 @@ class Filter extends Component {
       var st = window.pageYOffset || document.documentElement.scrollTop;
       if (st > lastScrollTop){
           // downscroll code
-          console.log('down')
           this.setState({
             isScrollingDown: true
           })
         } else {
           // upscroll code
-          console.log('up')
           this.setState({
             isScrollingDown: false
           })

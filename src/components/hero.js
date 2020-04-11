@@ -10,6 +10,11 @@ const Content = styled.div`
   grid-column-end: 31;
   margin-top: 6vh;
   margin-bottom: 10.5vh;
+
+  @media (max-width: 375px) {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
 `
 
 const Headline = styled.h2`
@@ -30,6 +35,9 @@ const Description = styled.p`
   color: #808080;
   margin: 0;
   line-height: 1.3;
+  @media (max-width: 375px) {
+    margin-bottom: 30px;
+  }
 `
 
 const Hero = ({heroHeadline, description}) => {
