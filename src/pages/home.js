@@ -6,6 +6,7 @@ import Hero from '../components/hero'
 import JobList from '../components/jobList'
 import Filter from '../components/filter'
 import Footer from '../components/footer'
+import NoResults from '../components/noresults'
 
 import slugify from '../utils/slugify'
 
@@ -108,14 +109,18 @@ class Home extends Component {
 
     const { jobList, categories, local, filteredJobs, selectedFilters, metadata, isFilterOpened, isContentLoaded } = this.state
 
+    const hasSelectedFilters = selectedFilters.length > 0
+    const hasFilteredJobs = filteredJobs.length > 0
+
     return (
       <>
         <Loading isContentLoaded={isContentLoaded} />
         {metadata && <Header title={metadata.title} formUrl={metadata.formUrl} />}
         {metadata && <Hero heroHeadline={metadata.heroHeadline} description={metadata.description} /> }
-        <JobList
-          data={selectedFilters.length > 0 ? filteredJobs : jobList}
-        />
+
+        {
+          hasSelectedFilters && !hasFilteredJobs ? <NoResults /> : <JobList data={selectedFilters.length > 0 ? filteredJobs : jobList} />
+        }
 
         {
           isContentLoaded &&  <Filter

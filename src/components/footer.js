@@ -22,8 +22,6 @@ const Content = styled.div`
 
 const Footer = ({content}) => {
 
-  console.log(content)
-
   return (
     <Container>
       <Content dangerouslySetInnerHTML={{ __html: content }}>
