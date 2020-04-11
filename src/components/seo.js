@@ -10,6 +10,8 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
+import openGraphSrc from '../images/vagascc.jpg'
+
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
     graphql`
@@ -68,6 +70,19 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `og:image:width`,
+          content: `600`,
+        },
+        {
+          name: `og:image:height`,
+          content: `315`,
+        },
+        {
+          name: `og:image`,
+          content: openGraphSrc,
+        },
+        
       ].concat(meta)}
     />
   )
