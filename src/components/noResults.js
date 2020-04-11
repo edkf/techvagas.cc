@@ -40,8 +40,8 @@ const NoResults = () => {
   return (
     <Container>
       <Content>
-        <Title>Não encontramos vagas.</Title>
-        <Description>Escolha outros filtros ou refaça sua busca.</Description>
+        <Title>0 vagas encontradas.</Title>
+        <Description>Não encontramos vagas para os filtros escolhidos.</Description>
       </Content>
     </Container>
   )
