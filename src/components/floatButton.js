@@ -12,6 +12,7 @@ const Container = styled.div`
   position: absolute;
   bottom: 90px;
   left: -60px;
+  right: auto;
   z-index: 3;
   background-color: #FFF;
   cursor: pointer;
@@ -19,14 +20,18 @@ const Container = styled.div`
   background-repeat: no-repeat;
   background-position: center center;
   pointer-events: auto !important;
-  
-  /* @media (max-width: 768px) {
-    width: 80px;
-    height: 80px;
-    left: -40px;
-    bottom: 30px;
-    background-size: 40px 40px;
-  } */
+  background-size: 45px 45px;
+  transition: all .3s ease;
+
+  @media (max-width: 768px) {
+    left: ${props => props.isFilterOpened ? 'auto' : '40px'};
+    right: ${props => props.isFilterOpened ? '30px' : 'auto'};
+    /* bottom: ${props => props.isIOS ? (props.isScrollingDown ? '30px' : '17.5vh') : '30px'}; */
+    bottom: ${props => props.isIOS || props.isAndroid ? (props.isIOS ? (props.isScrollingDown ? '30px' : '17.5vh') : (props.isScrollingDown ? '30px' : '90px')) : '30px'};
+    width: 90px;
+    height: 90px;
+    background-size: 30px 30px;
+  }
 `
 
 const Badge = styled.div`
@@ -44,12 +49,12 @@ const Badge = styled.div`
   text-align: center;
 `
 
-const FloatButton = ({toggleFilter, isFilterOpened, selectedFilters}) => {
+const FloatButton = ({toggleFilter, isFilterOpened, selectedFilters, isScrollingDown, isIOS, isAndroid}) => {
 
   const badgeCounter = selectedFilters.length
 
   return (
-    <Container isFilterOpened={isFilterOpened} onClick={() => toggleFilter()}>
+    <Container isIOS={isIOS} isAndroid={isAndroid} isScrollingDown={isScrollingDown} isFilterOpened={isFilterOpened} onClick={() => toggleFilter()}>
       { (!isFilterOpened && (badgeCounter > 0)) && <Badge>{badgeCounter}</Badge>}
     </Container>
   )

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Title = styled.h3`
+  width: 100%;
   font-size: 32px;
   font-weight: 500;
   margin: 0;
@@ -10,7 +11,7 @@ const Title = styled.h3`
   opacity: 1;
 
   @media (max-width: 768px) {
-    font-size: 26px;
+    font-size: 16px;
   }
 
   @media (max-width: 375px) {
@@ -18,6 +19,7 @@ const Title = styled.h3`
   }
 `
 const Description = styled.p`
+  width: 100%;
   color: #808080;
   margin: 0;
   line-height: 1.3;
@@ -48,7 +50,12 @@ const Content = styled.a`
 
 const JobItem = (props) => {
 
-  const {Contato, Empresa, Local, Vaga} = props.data
+  const {
+    Contato,
+    Empresa,
+    Local, 
+    Vaga
+  } = props.data
 
   const localStr = Local.map((item, index) => index === Local.length - 1 ? item : item + ', ')
 

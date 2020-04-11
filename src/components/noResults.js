@@ -6,10 +6,11 @@ import { Container } from '../styles/global'
 const Content = styled.div`
   grid-column-start: 3;
   grid-column-end: 31;
-  padding: 90px 0;
+  padding: 25px 0 70px 0;
 
   @media (max-width: 768px) {
     margin-top: 30px;
+    padding: 0px 0 70px 0;
   }
 `
 

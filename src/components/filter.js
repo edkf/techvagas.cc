@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
+import Div100vh from 'react-div-100vh'
 
 import Checkbox from '../components/checkBox'
 import FloatButton from '../components/floatButton'
 
 import { Container } from '../styles/global'
 
-const Wrapper = styled.div`
+const Wrapper = styled(Div100vh)`
   width: 100%;
-  height: 100vh;
   position: fixed;
   left: 0;
   top: 0;
@@ -43,17 +43,17 @@ const FilterContainer = styled.div`
   transform: ${props => props.isFilterOpened ? 'translateX(0px)' : 'translateX(calc(100% - 160px))'};
   pointer-events: ${props => props.isFilterOpened ? 'auto' : 'none'};
 
-  /* @media (max-width: 1556px) {
+  @media (max-width: 1556px) {
     grid-column-start: 16;
-    grid-column-end: 33;
-    transform: ${props => props.isFilterOpened ? 'translateX(0px)' : 'translateX(calc(100%))'};
+  }
+
+  @media (max-width: 1020px) {
+    grid-column-start: 10;
   }
 
   @media (max-width: 768px) {
     grid-column-start: 1;
-    grid-column-end: 33;
-    transform: ${props => props.isFilterOpened ? 'translateX(0px)' : 'translateX(calc(100%))'};
-  } */
+  }
 `
 
 const FilterContent = styled.div`
@@ -80,7 +80,7 @@ const ListTitle = styled.h4`
 `
 
 const CheckboxList = styled.div`
-  margin-bottom: 90px;
+  padding-bottom: 90px;
 `
 
 const Scroll = styled.div`
@@ -94,16 +94,83 @@ const Scroll = styled.div`
   }
 `
 
-const Filter = ({categories, local, handleChange, isFilterOpened, toggleFilter, selectedFilters}) => {
+class Filter extends Component {
 
-  return (
-    <Wrapper isFilterOpened={isFilterOpened}>
+  constructor (props) {
+    super(props)
+
+    this.handleScroll = this.handleScroll.bind(this)
+
+    this.state = {
+      isScrollingDown: false,
+      isIOS: false,
+      isAndroid: false
+    }
+  }
+
+  componentDidMount () {
+    this.handleScroll()
+
+    const ua = navigator.userAgent.toLowerCase()
+
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+    const isAndroid = ua.indexOf("android") > -1
+
+    this.setState({
+      isIOS,
+      isAndroid
+    })
+  }
+
+  componentWillUnmount () {
+    this.handleScroll()
+  }
+
+  handleScroll (event) {
+    var scrollPos = 0;
+    // adding scroll event
+    var lastScrollTop = 0;
+    window.addEventListener("scroll", () => {
+      var st = window.pageYOffset || document.documentElement.scrollTop;
+      if (st > lastScrollTop){
+          // downscroll code
+          this.setState({
+            isScrollingDown: true
+          })
+        } else {
+          // upscroll code
+          this.setState({
+            isScrollingDown: false
+          })
+      }
+    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+  }, false);
+  }
+
+  render () {
+
+    const {
+      categories,
+      local,
+      handleChange,
+      isFilterOpened,
+      toggleFilter,
+      selectedFilters
+    } = this.props
+
+    const { isScrollingDown, isIOS, isAndroid } = this.state
+
+    return (
+      <Wrapper isFilterOpened={isFilterOpened} style={{minHeight: '100rvh'}}>
       <Container>
         <FilterContainer isFilterOpened={isFilterOpened}>
           <FloatButton
             toggleFilter={() => toggleFilter()}
             isFilterOpened={isFilterOpened}
             selectedFilters={selectedFilters}
+            isIOS={isIOS}
+            isAndroid={isAndroid}
+            isScrollingDown={isScrollingDown}
           />
           <Scroll>
             <FilterContent isFilterOpened={isFilterOpened}>
@@ -125,7 +192,8 @@ const Filter = ({categories, local, handleChange, isFilterOpened, toggleFilter, 
       </Container>
       <Overlay isFilterOpened={isFilterOpened} onClick={() => toggleFilter()} />
     </Wrapper>
-  )
+    )
+  }
 }
 
 export default Filter
