@@ -25,7 +25,7 @@ const Headline = styled.h2`
   letter-spacing: -6px;
   line-height: 1;
 
-  @media (max-width: 375px) {
+  @media (max-width: 768px) {
     letter-spacing: -1px;
   }
 `
