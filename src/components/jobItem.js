@@ -26,6 +26,15 @@ const Description = styled.p`
   transition: color .3s ease;
 `
 
+const ReportLink = styled.a`
+  text-decoration: none;
+  color: #808080;
+  font-size: 16px;
+  font-weight: normal;
+  opacity: 0;
+  transition: opacity .3s ease;
+`
+
 const Content = styled.a`
   width: 100%;
   display: inline-block;
@@ -39,6 +48,12 @@ const Content = styled.a`
 
     ${Description} {
       color: #0000EE;
+    }
+
+    ${ReportLink} {
+      display: inline-block;
+      opacity: 1;
+      pointer-events: auto;
     }
   }
 
@@ -61,7 +76,7 @@ const JobItem = (props) => {
 
   return (
     <Content href={Contato.includes('@') ? `mailto:${Contato}?subject=Vaga ${Vaga}` : Contato} target="_blank" without rel="noopener noreferrer">
-      <Title>{Vaga}</Title>
+      <Title>{Vaga} <ReportLink href={`mailto:hello@edkf.com.br?subject=Reportar vaga ${Vaga} ${Empresa}`}>Reportar vaga</ReportLink></Title>
       <Description>{Empresa} - {localStr} </Description>
     </Content>
   )
