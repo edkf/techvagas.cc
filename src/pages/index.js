@@ -12,7 +12,7 @@ const IndexPage = () => {
 
   const data = useStaticQuery(graphql`
   query AllData {
-    allAirtable {
+    allAirtable (sort: {fields: data___Created, order: DESC}) {
       nodes {
         data {
           Vaga
