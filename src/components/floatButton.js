@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import filterIcon from '../images/filter-icon.svg'
 import closeIcon from '../images/close-icon.svg'
+import checkIcon from '../images/check-icon.svg'
 
 const Container = styled.div`
   width: 120px;
@@ -16,7 +17,7 @@ const Container = styled.div`
   z-index: 3;
   background-color: #FFF;
   cursor: pointer;
-  background-image: ${props => props.isFilterOpened ? `url(${closeIcon})` : `url(${filterIcon})`};
+  background-image: ${props => props.isFilterOpened ? (props.badgeCounter > 0 ? `url(${checkIcon})` : `url(${closeIcon})` ) : `url(${filterIcon})`};
   background-repeat: no-repeat;
   background-position: center center;
   pointer-events: auto !important;
@@ -54,8 +55,8 @@ const FloatButton = ({toggleFilter, isFilterOpened, selectedFilters, isScrolling
   const badgeCounter = selectedFilters.length
 
   return (
-    <Container isIOS={isIOS} isAndroid={isAndroid} isScrollingDown={isScrollingDown} isFilterOpened={isFilterOpened} onClick={() => toggleFilter()}>
-      { (!isFilterOpened && (badgeCounter > 0)) && <Badge>{badgeCounter}</Badge>}
+    <Container badgeCounter={badgeCounter} isIOS={isIOS} isAndroid={isAndroid} isScrollingDown={isScrollingDown} isFilterOpened={isFilterOpened} onClick={() => toggleFilter()}>
+      { badgeCounter > 0 && <Badge>{badgeCounter}</Badge>}
     </Container>
   )
 }
