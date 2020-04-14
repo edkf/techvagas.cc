@@ -76,7 +76,7 @@ const JobItem = (props) => {
 
   return (
     <Content href={Contato.includes('@') ? `mailto:${Contato}?subject=Vaga ${Vaga}` : Contato} target="_blank" without rel="noopener noreferrer">
-      <Title>{Vaga} <ReportLink href={`mailto:hello@edkf.com.br?subject=Reportar vaga ${Vaga} ${Empresa}`}>Reportar vaga</ReportLink></Title>
+      <Title>{Vaga}</Title>
       <Description>{Empresa} - {localStr} </Description>
     </Content>
   )
