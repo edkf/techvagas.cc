@@ -75,7 +75,7 @@ const JobItem = (props) => {
   const localStr = Local.map((item, index) => index === Local.length - 1 ? item : item + ', ')
 
   return (
-    <Content href={Contato.includes('@') ? `mailto:${Contato}?subject=Vaga ${Vaga}` : Contato} target="_blank" without rel="noopener noreferrer">
+    <Content href={Contato.includes('@') ? `mailto:${Contato}?subject=Vaga ${Vaga}` : Contato} target="_blank" without="true" rel="noopener noreferrer">
       <Title>{Vaga}</Title>
       <Description>{Empresa} - {localStr} </Description>
     </Content>

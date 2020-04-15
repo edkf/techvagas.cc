@@ -131,7 +131,6 @@ class Filter extends Component {
   }
 
   handleScroll (event) {
-    var scrollPos = 0;
     // adding scroll event
     var lastScrollTop = 0;
     window.addEventListener("scroll", () => {

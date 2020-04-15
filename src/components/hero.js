@@ -34,18 +34,28 @@ const Headline = styled.h2`
 const Description = styled.p`
   color: #808080;
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.4;
+
+  @media (max-width: 1410px) {
+    br {
+      display: none;
+    }
+  }
+
   @media (max-width: 375px) {
     margin-bottom: 30px;
   }
 `
 
-const Hero = ({heroHeadline, description}) => {
+const Hero = ({heroHeadline, description, jobList}) => {
   return (
     <Container>
       <Content>
         <Headline>{heroHeadline}</Headline>
-        <Description dangerouslySetInnerHTML={{ __html: description }}></Description>
+        <Description>
+          Uma iniciativa que tem por objetivo trazer a esperança de um novo emprego, mesmo em meio à incerteza da pandemia. <br />
+          Atualmente temos {jobList.length} vagas disponíveis. Ajude esse número a crescer <a href="https://airtable.com/shrcFKFGDq6WcGZkJ" target="_blank" without="true" rel="noopener noreferrer">adicionando uma vaga</a>.
+        </Description>
       </Content>
     </Container>
   )

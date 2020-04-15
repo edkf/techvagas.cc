@@ -123,7 +123,7 @@ class Home extends Component {
       <>
         <Loading isContentLoaded={isContentLoaded} />
         {metadata && <Header title={metadata.title} formUrl={metadata.formUrl} />}
-        {metadata && <Hero heroHeadline={metadata.heroHeadline} description={metadata.description} /> }
+        {metadata && <Hero heroHeadline={metadata.heroHeadline} jobList={jobList} /> }
 
         {
           hasSelectedFilters && !hasFilteredJobs ? <NoResults /> : <JobList data={selectedFilters.length > 0 ? filteredJobs : jobList} />

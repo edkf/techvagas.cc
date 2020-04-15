@@ -49,7 +49,7 @@ const Header = ({title, formUrl}) => {
         <Link
           href={formUrl}
           target="_blank"
-          without
+          without="true"
           rel="noopener noreferrer"
           >
           Adicionar vaga
