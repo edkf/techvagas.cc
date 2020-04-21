@@ -84,7 +84,6 @@ class Home extends Component {
     }
 
     this.filterJobs()
-
   }
 
 
