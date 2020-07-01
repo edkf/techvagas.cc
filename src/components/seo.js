@@ -71,6 +71,10 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
+          name: `twitter:image`,
+          content: 'https://res.cloudinary.com/dyw3e3f2c/image/upload/v1593560987/vagas.cc/vagascc.jpg',
+        },
+        {
           name: `image`,
           property: `og:image`,
           content: 'https://res.cloudinary.com/dyw3e3f2c/image/upload/v1593560987/vagas.cc/vagascc.jpg',
