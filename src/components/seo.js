@@ -71,15 +71,8 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
-          name: `og:image:width`,
-          content: `600`,
-        },
-        {
-          name: `og:image:height`,
-          content: `315`,
-        },
-        {
-          name: `og:image`,
+          name: `image`,
+          property: `og:image`,
           content: 'https://res.cloudinary.com/dyw3e3f2c/image/upload/v1593560987/vagas.cc/vagascc.jpg',
         },
         
