@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-import openGraphSrc from '../images/vagascc.jpg'
+// import openGraphSrc from '../images/vagascc.jpg'
 
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
@@ -56,7 +56,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
@@ -80,7 +80,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `og:image`,
-          content: openGraphSrc,
+          content: 'https://res.cloudinary.com/dyw3e3f2c/image/upload/v1593560987/vagas.cc/vagascc.jpg',
         },
         
       ].concat(meta)}
