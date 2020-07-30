@@ -45,7 +45,7 @@ const Header = ({title, formUrl}) => {
   return (
     <Container>
       <Content>
-        <Logo ><a href="/">vagas.cc</a></Logo>
+        <Logo ><a href="/">techvagas.cc</a></Logo>
         <Link
           href={formUrl}
           target="_blank"

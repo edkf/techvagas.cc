@@ -2,7 +2,7 @@ require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    title: `vagas.cc`,
+    title: `techvagas.cc`,
     heroHeadline: 'Vagas de Tecnologia',
     description: `Uma iniciativa que tem por objetivo trazer a esperança de um novo emprego, mesmo em meio à incerteza da pandemia.`,
     author: `Edgard Kozlowski`,

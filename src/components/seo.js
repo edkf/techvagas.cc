@@ -72,12 +72,12 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:image`,
-          content: 'https://res.cloudinary.com/dyw3e3f2c/image/upload/v1593560987/vagas.cc/vagascc.jpg',
+          content: 'https://res.cloudinary.com/dyw3e3f2c/image/upload/v1596144876/vagas.cc/techvagascc.jpg',
         },
         {
           name: `image`,
           property: `og:image`,
-          content: 'https://res.cloudinary.com/dyw3e3f2c/image/upload/v1593560987/vagas.cc/vagascc.jpg',
+          content: 'https://res.cloudinary.com/dyw3e3f2c/image/upload/v1596144876/vagas.cc/techvagascc.jpg',
         },
         
       ].concat(meta)}

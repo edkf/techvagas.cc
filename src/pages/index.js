@@ -48,7 +48,7 @@ const IndexPage = () => {
     <>
       <GlobalStyle />
       <SEO
-        title="vagas.cc"
+        title="techvagas.cc"
         />
       <Home data={data} />
     </>
