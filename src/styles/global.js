@@ -9,16 +9,16 @@ export const GlobalStyle = createGlobalStyle`
 
   @font-face {
   font-family: 'GT America Extended';
-  src: url('../../static/fonts/GTAmerica-ExtendedRegular.woff2') format('woff2'),
-      url('../../static/fonts/GTAmerica-ExtendedRegular.woff') format('woff');
+  src: url('https://res.cloudinary.com/dyw3e3f2c/raw/upload/v1598754387/vagas.cc/GTAmerica-ExtendedRegular.woff2') format('woff2'),
+      url('https://res.cloudinary.com/dyw3e3f2c/raw/upload/v1598754387/vagas.cc/GTAmerica-ExtendedRegular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'GT America Extended';
-  src: url('../../static/fonts/GTAmerica-ExtendedMedium.woff2') format('woff2'),
-      url('../../static/fonts/GTAmerica-ExtendedMedium.woff') format('woff');
+  src: url('https://res.cloudinary.com/dyw3e3f2c/raw/upload/v1598754387/vagas.cc/GTAmerica-ExtendedMedium.woff2') format('woff2'),
+      url('https://res.cloudinary.com/dyw3e3f2c/raw/upload/v1598754387/vagas.cc/GTAmerica-ExtendedMedium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
 }
