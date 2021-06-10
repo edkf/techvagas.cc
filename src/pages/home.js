@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import FontFaceObserver from 'fontfaceobserver'
 
 import Header from '../components/header'
 import Hero from '../components/hero'
@@ -59,12 +60,22 @@ class Home extends Component {
       return newObj
     })
 
+    var font = new FontFaceObserver('GT America Extended', {
+      weight: 500
+    });
+    
+    font.load().then(() => {
+      this.setState({
+        isContentLoaded: true
+      })
+    }, () => {
+    })
+
     this.setState({
       jobList,
       categories,
       local,
-      metadata,
-      isContentLoaded: true
+      metadata
     })
 
   }
